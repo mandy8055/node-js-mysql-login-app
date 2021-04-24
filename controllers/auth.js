@@ -38,7 +38,6 @@ exports.register = (req, res) => {
           }
         }
       );
-      db.end();
     }
   );
 };
@@ -80,7 +79,6 @@ exports.login = async (req, res) => {
           ),
           httpOnly: true,
         };
-        db.end();
         res.cookie("loginJwt", token, cookieOptions);
         res.status(200).redirect("/");
       }
@@ -105,14 +103,13 @@ exports.isLoggedIn = async (req, res, next) => {
         "SELECT * FROM users WHERE id = ?",
         [decoded.id],
         (err, result) => {
-          console.log(result);
+          // console.log(result);
           if (!result) return next();
 
           req.user = result[0];
           return next();
         }
       );
-      db.end();
     } catch (error) {
       return next();
     }
