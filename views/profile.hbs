@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="stylesheet" href="/style.css">
+    <title>Login Challenge</title>
+</head>
+
+<body>
+    <nav>
+        <h4>Oysters Node Challenge</h4>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/auth/logout">Logout</a></li>
+        </ul>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-4">
+                <div class="card">
+                    <div class="avatar-ctn">
+                        <img src="/avatar.png" class="avatar" alt="user profile pic">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{user.name}}</h5>
+                        <p class="card-text">This is a simple hero unit, a simple jumbotron-style component for calling
+                            extra attention
+                            to featured content or information.</p>
+                        <a href="#" class="btn btn-primary">{{user.email}}</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-8">
+                <div class="card text-center">
+                    <div class="card-header">Profile Page</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Hello {{firstName}}. Welcome back</h5>
+                        <p class="card-text">It uses utility classes for typography and spacing to space content out
+                            within the larger container. Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                            Perferendis et praesentium odio quibusdam quia? Aliquid error eaque quidem sint distinctio
+                            laborum, nisi ratione rem harum delectus quo, mollitia porro! Minus. Lorem ipsum dolor sit
+                            amet consectetur adipisicing elit. Placeat quibusdam optio qui beatae id magnam accusantium
+                            dolore omnis vitae incidunt, labore praesentium at quod voluptate molestiae repellat
+                            asperiores? Officiis, quibusdam?Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            Inventore ratione voluptate saepe ipsa. Totam tempore officia vitae, voluptatum voluptas
+                            illum illo ipsum. Distinctio iure impedit dolorum cumque mollitia repudiandae
+                            earum?Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
+                        <a href="https://mandy8055.github.io/" class="btn btn-primary">My Portfolio</a>
+                    </div>
+                    <div class="card-footer text-muted">Challenge App - Project</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+    crossorigin="anonymous"></script>
+
+</html>

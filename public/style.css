@@ -1,3 +1,36 @@
-body{
-    background-color: orange;
+nav{
+    background-color: #008080;
+    color: #fff;
+    padding: 30px 60px;
+    display:flex;
+    justify-content: space-between;
 }
+nav ul{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+nav li{
+    list-style: none;
+}
+nav li a{
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 8px;
+}
+
+nav li a:hover{
+    color: beige;
+    text-decoration: none;
+}
+.avatar-ctn {
+    background-color: thistle;
+    text-align: center;
+  }
+  
+.avatar {
+    width: 65%;
+    border-bottom: 1px solid rgba(0,0,0,0.125);
+  }
