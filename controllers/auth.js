@@ -31,7 +31,7 @@ exports.register = (req, res) => {
         (error, result) => {
           if (error) console.log(error);
           else {
-            console.log(result);
+            // console.log(result);
             return res.render("register", {
               message: "Registration successful",
             });
@@ -59,7 +59,7 @@ exports.login = async (req, res) => {
     "SELECT * FROM users WHERE email = ?",
     [email],
     async (error, results) => {
-      console.log(results);
+      // console.log(results);
       if (
         !results ||
         !(await bcryptjs.compare(password, results[0].password))
@@ -87,7 +87,7 @@ exports.login = async (req, res) => {
 };
 
 exports.isLoggedIn = async (req, res, next) => {
-  console.log(req.cookies);
+  // console.log(req.cookies);
 
   if (req.cookies.loginJwt) {
     try {
@@ -96,7 +96,7 @@ exports.isLoggedIn = async (req, res, next) => {
         req.cookies.loginJwt,
         process.env.JWT_SECRET
       );
-      console.log(decoded);
+      // console.log(decoded);
 
       // Check if the user still exists
       db.query(
