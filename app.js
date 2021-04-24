@@ -5,6 +5,7 @@ const cookieParser = require("cookie-parser");
 const publicDirectory = path.join(__dirname, "./public");
 
 const app = express();
+const PORT = process.env.PORT;
 
 app.use(express.static(publicDirectory));
 
@@ -21,6 +22,6 @@ app.set("view engine", "hbs");
 app.use("/", require("./routes/pages"));
 app.use("/auth", require("./routes/auth"));
 
-app.listen(5000, () => {
-  console.log("Server started");
+app.listen(PORT, () => {
+  console.log(`Server started on port ${PORT}`);
 });
