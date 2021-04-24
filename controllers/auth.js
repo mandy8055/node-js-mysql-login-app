@@ -38,6 +38,7 @@ exports.register = (req, res) => {
           }
         }
       );
+      db.end();
     }
   );
 };
@@ -72,7 +73,6 @@ exports.login = async (req, res) => {
         const token = jwt.sign({ id }, process.env.JWT_SECRET, {
           expiresIn: process.env.JWT_EXPIRES_IN,
         });
-        console.log(`The token is ${token}`);
 
         const cookieOptions = {
           expires: new Date(
@@ -80,7 +80,7 @@ exports.login = async (req, res) => {
           ),
           httpOnly: true,
         };
-
+        db.end();
         res.cookie("loginJwt", token, cookieOptions);
         res.status(200).redirect("/");
       }
@@ -112,6 +112,7 @@ exports.isLoggedIn = async (req, res, next) => {
           return next();
         }
       );
+      db.end();
     } catch (error) {
       return next();
     }
