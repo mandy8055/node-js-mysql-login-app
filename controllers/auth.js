@@ -22,6 +22,7 @@ exports.login = async (req, res) => {
           !results ||
           !(await bcrypt.compare(password, results[0].password))
         ) {
+          console.log(!(await bcrypt.compare(password, results[0].password)));
           res.status(401).render("login", {
             message: "Email or Password is incorrect",
           });
