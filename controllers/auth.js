@@ -7,7 +7,7 @@ exports.register = (req, res) => {
   // console.log(req.body);
   const { name, email, password, passwordConfirm } = req.body;
   db.query(
-    "SELECT email FROM users WHERE email = ?",
+    "SELECT email FROM userss WHERE email = ?",
     [email],
     async (error, result) => {
       if (error) console.log(error);
@@ -22,7 +22,7 @@ exports.register = (req, res) => {
       }
       let hashedPassword = await bcryptjs.hash(password, 8);
       db.query(
-        "INSERT INTO users SET ?",
+        "INSERT INTO userss SET ?",
         {
           name: name,
           email: email,
@@ -56,7 +56,7 @@ exports.login = async (req, res) => {
   }
 
   db.query(
-    "SELECT * FROM users WHERE email = ?",
+    "SELECT * FROM userss WHERE email = ?",
     [email],
     async (error, results) => {
       // console.log(results);
@@ -98,7 +98,7 @@ exports.isLoggedIn = async (req, res, next) => {
 
       // Check if the user still exists
       db.query(
-        "SELECT * FROM users WHERE id = ?",
+        "SELECT * FROM userss WHERE id = ?",
         [decoded.id],
         (err, result) => {
           // console.log(result);
