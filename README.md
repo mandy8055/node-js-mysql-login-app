@@ -1,9 +1,10 @@
 # node-js-mysql-login-app
 
-![image](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)![image](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge&logo=express&logoColor=white)![image](https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white)![image](https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white)![image](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)![image](https://img.shields.io/badge/Visual_Studio_Code-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
+![image](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)![image](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge&logo=express&logoColor=white)![image](https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white)
+![image](https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white)![image](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)![image](https://img.shields.io/badge/Visual_Studio_Code-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
 
 ## App overview
-This web application is a login and registration application. It is built using `node.js` and `mysql` as backend. It makes use of `jsonWebToken` in order to record the login sessions. It uses `handlebars` as its **view engine**.
+This web application is a login and registration application. It is built using `node.js` and `mysql` as backend. It makes use of `jsonWebToken` in order to record the login sessions. It uses `handlebars` as its **view engine**. The application is tested on `google chrome` browser.
 
 This application is built by keeping in mind the best practices which can be used to develop node application. Although, perfection and learning is an life-long process so I will continue to make use of best practices going along.
 
@@ -21,7 +22,7 @@ This application is built by keeping in mind the best practices which can be use
 4. **Profile** page is shown to only those users who are logged in.
 5. **The navbar** of each page is maintained according to the current status of user.
 
-**ROAD-MAP:**
+**FUTURE ROAD-MAP:**
 1. To add a user as **admin** who can **update** and **delete** other users from front-end itself.
 2. Improve **efficiency** and **concurrency** of the node app.
 
@@ -36,4 +37,4 @@ This application is built by keeping in mind the best practices which can be use
 8. [nodejs best practices with heroku](https://devcenter.heroku.com/articles/node-best-practices)
 
 ## Deployment Link
-The app is deployed **[here](https://login-registration-oyster.herokuapp.com/)**.
+**The app is deployed [here](https://login-registration-oyster.herokuapp.com/).**
