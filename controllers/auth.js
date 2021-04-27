@@ -20,6 +20,7 @@ exports.login = async (req, res) => {
         console.log(`Result of query ${results}`);
         if (
           !results ||
+          results.length === 0 ||
           !(await bcrypt.compare(password, results[0].password))
         ) {
           res.status(401).render("login", {
@@ -32,7 +33,7 @@ exports.login = async (req, res) => {
             expiresIn: process.env.JWT_EXPIRES_IN,
           });
 
-          console.log("The token is: " + token);
+          // console.log("The token is: " + token);
 
           const cookieOptions = {
             expires: new Date(
@@ -52,7 +53,7 @@ exports.login = async (req, res) => {
 };
 
 exports.register = (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
 
   const { name, email, password, passwordConfirm } = req.body;
 
@@ -75,7 +76,7 @@ exports.register = (req, res) => {
       }
 
       let hashedPassword = await bcrypt.hash(password, 8);
-      console.log(hashedPassword);
+      // console.log(hashedPassword);
 
       db.query(
         "INSERT INTO userss SET ?",
@@ -84,7 +85,7 @@ exports.register = (req, res) => {
           if (error) {
             console.log(error);
           } else {
-            console.log(results);
+            // console.log(results);
             return res.render("register", {
               message: "User registered",
             });
@@ -105,22 +106,22 @@ exports.isLoggedIn = async (req, res, next) => {
         process.env.JWT_SECRET
       );
 
-      console.log(decoded);
+      // console.log(decoded);
 
       //2) Check if the user still exists
       db.query(
         "SELECT * FROM userss WHERE id = ?",
         [decoded.id],
         (error, result) => {
-          console.log(result);
+          // console.log(result);
 
           if (!result) {
             return next();
           }
 
           req.user = result[0];
-          console.log("user is");
-          console.log(req.user);
+          // console.log("user is");
+          // console.log(req.user);
           return next();
         }
       );
