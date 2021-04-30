@@ -10,7 +10,7 @@ dotenv.config({ path: "./.env" });
 const PORT = process.env.PORT;
 
 // global variable
-global.logLevel = process.env.LOG_LEVEL;
+global.logLevel = process.env.NPM_CONFIG_LOGLEVEL;
 
 if (app.get("env") === "development") {
   // error handlers
