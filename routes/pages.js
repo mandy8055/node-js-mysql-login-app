@@ -4,19 +4,16 @@ const authController = require("../controllers/auth");
 const router = express.Router();
 
 router.get("/", authController.isLoggedIn, (req, res) => {
-  //   res.send("<h1>HELLO WORLD</h1>");
   res.render("index", {
     user: req.user,
   });
 });
 
 router.get("/register", (req, res) => {
-  //   res.send("<h1>HELLO WORLD</h1>");
   res.render("register");
 });
 
 router.get("/login", (req, res) => {
-  //   res.send("<h1>HELLO WORLD</h1>");
   res.render("login");
 });
 

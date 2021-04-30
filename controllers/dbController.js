@@ -1,9 +1,6 @@
 const mysql = require("mysql");
 const dotenv = require("dotenv");
-
-dotenv.config({
-  path: "./.env",
-});
+dotenv.config({ path: "./.env" });
 
 const db = mysql.createPool({
   connectionLimit: process.env.CONNECTION_LIMIT,

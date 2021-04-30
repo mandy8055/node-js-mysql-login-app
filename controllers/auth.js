@@ -2,8 +2,10 @@ const db = require("./dbController");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const { promisify } = require("util");
+const logger = require("../utils/winston-logger");
 
 exports.login = async (req, res) => {
+  logger.winston.info("[Login User]");
   try {
     const { email, password } = req.body;
 
@@ -17,7 +19,7 @@ exports.login = async (req, res) => {
       "SELECT * FROM userss WHERE email = ?",
       [email],
       async (error, results) => {
-        console.log(`Result of query ${results}`);
+        // console.log(`Result of query ${results}`);
         if (
           !results ||
           results.length === 0 ||
@@ -33,7 +35,7 @@ exports.login = async (req, res) => {
             expiresIn: process.env.JWT_EXPIRES_IN,
           });
 
-          // console.log("The token is: " + token);
+          console.log("The token is: " + token);
 
           const cookieOptions = {
             expires: new Date(
@@ -48,11 +50,12 @@ exports.login = async (req, res) => {
       }
     );
   } catch (error) {
-    console.log(error);
+    logger.winston.error(error);
   }
 };
 
 exports.register = (req, res) => {
+  logger.winston.info("[Register User]");
   // console.log(req.body);
 
   const { name, email, password, passwordConfirm } = req.body;
@@ -62,7 +65,7 @@ exports.register = (req, res) => {
     [email],
     async (error, results) => {
       if (error) {
-        console.log(error);
+        logger.winston.error(error);
       }
 
       if (results.length > 0) {
@@ -76,16 +79,16 @@ exports.register = (req, res) => {
       }
 
       let hashedPassword = await bcrypt.hash(password, 8);
-      // console.log(hashedPassword);
+      console.log(`Hashed Password: ${hashedPassword}`);
 
       db.query(
         "INSERT INTO userss SET ?",
         { name: name, email: email, password: hashedPassword },
         (error, results) => {
           if (error) {
-            console.log(error);
+            logger.winston.error(error);
           } else {
-            // console.log(results);
+            logger.winston.info(`Results: ${results}`);
             return res.render("register", {
               message: "User registered",
             });
@@ -97,7 +100,8 @@ exports.register = (req, res) => {
 };
 
 exports.isLoggedIn = async (req, res, next) => {
-  // console.log(req.cookies);
+  logger.winston.info("[IsLoggedIn]");
+  console.log(req.cookies);
   if (req.cookies.jwt) {
     try {
       //1) verify the token
@@ -106,7 +110,7 @@ exports.isLoggedIn = async (req, res, next) => {
         process.env.JWT_SECRET
       );
 
-      // console.log(decoded);
+      // console.log(`Decoded value: ${decoded}`);
 
       //2) Check if the user still exists
       db.query(
@@ -121,12 +125,12 @@ exports.isLoggedIn = async (req, res, next) => {
 
           req.user = result[0];
           // console.log("user is");
-          // console.log(req.user);
+          // console.log(`Current user: ${req.user}`);
           return next();
         }
       );
     } catch (error) {
-      console.log(error);
+      logger.winston.error(error);
       return next();
     }
   } else {
@@ -135,7 +139,8 @@ exports.isLoggedIn = async (req, res, next) => {
 };
 
 exports.logout = async (req, res) => {
-  res.cookie("jwt", "logout", {
+  logger.winston.info("[Logout]");
+  res.clearCookie("jwt", {
     expires: new Date(Date.now() + 2 * 1000),
     httpOnly: true,
   });

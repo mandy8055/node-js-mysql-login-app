@@ -23,9 +23,14 @@ This application is built by keeping in mind the best practices which can be use
 4. **Profile** page is shown to only those users who are logged in.
 5. **The navbar** of each page is maintained according to the current status of user.
 
-**FUTURE ROAD-MAP:**
-1. To add a user as **admin** who can **update** and **delete** other users from front-end itself.
-2. Improve **efficiency** and **concurrency** of the node app.
+**CHECKLIST [TODO]:**
+- [x] Compress the slug size.
+- [x] Implement user-friendly logger using best practices.
+- [ ] Make efficient use of cluster.
+- [x] Set up various HTTP headers to prevent attacks like Cross-Site-Scripting(XSS), click-jacking, etc.
+- [ ] Implement forgot password and change password functionality in the app.
+- [ ] Implement different user registration options.
+- [ ] Implement an admin account which has root-level access.  
 
 ## References
 1. [Free Code Camp](https://www.youtube.com/watch?v=fsCjFHuMXj0)
@@ -33,9 +38,11 @@ This application is built by keeping in mind the best practices which can be use
 3. [Stack overflow Link 2](https://stackoverflow.com/q/51849010)
 4. [Stack overflow Link 3](https://stackoverflow.com/questions/54641529/cleardb-connecting-with-npm-run-start-but-not-with-heroku-deploy-err-connecti)
 5. [Stack overflow Link 4](https://stackoverflow.com/questions/10974360/heroku-error-h12-request-timeout-issue)
-6. [Blog post](https://bezkoder.com/deploy-node-js-app-heroku-cleardb-mysql/)
-7. [ClearDB](https://devcenter.heroku.com/articles/cleardb#:~:text=Local%20setup,-The%20ClearDB%20dedicated&text=done-,Once%20in%20the%20ClearDB%20portal%2C%20simply%20click%20on%20the%20Databases,to%20build%20your%20new%20DATABASE_URL.)
-8. [nodejs best practices with heroku](https://devcenter.heroku.com/articles/node-best-practices)
+6. [Stack overflow Link 5](https://stackoverflow.com/a/62789964)
+7. [Blog post](https://bezkoder.com/deploy-node-js-app-heroku-cleardb-mysql/)
+8. [ClearDB](https://devcenter.heroku.com/articles/cleardb#:~:text=Local%20setup,-The%20ClearDB%20dedicated&text=done-,Once%20in%20the%20ClearDB%20portal%2C%20simply%20click%20on%20the%20Databases,to%20build%20your%20new%20DATABASE_URL.)
+9. [nodejs best practices with heroku](https://devcenter.heroku.com/articles/node-best-practices)
+10. [HELPFUL REPO](https://github.com/paschmann/rasa-ui)
 
 ## Deployment Link
 **The app is deployed [here](https://login-registration-oyster.herokuapp.com/).**
